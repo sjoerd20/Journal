@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // create database
+        EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
     }
 
     public void floatingActionButtonClicked(View v) {
