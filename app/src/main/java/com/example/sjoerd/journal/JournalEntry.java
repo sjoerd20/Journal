@@ -1,13 +1,25 @@
 package com.example.sjoerd.journal;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class JournalEntry implements Serializable {
     private int id;
-    private String title, content, mood, timestamp;
+    private String title, content;
+    private Mood mood;
+    private Timestamp timestamp;
 
     // constructor
-    public JournalEntry(int id, String title, String content, String mood, String timestamp) {
+    public JournalEntry(int id, String title, String content, Mood mood, Timestamp timestamp) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.mood = mood;
+        this.timestamp = timestamp;
+    }
+
+    // constructor
+    public JournalEntry(String title, String content, Mood mood, Timestamp timestamp) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -28,11 +40,11 @@ public class JournalEntry implements Serializable {
         return content;
     }
 
-    public String getMood() {
+    public Mood getMood() {
         return mood;
     }
 
-    public String getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
@@ -48,11 +60,11 @@ public class JournalEntry implements Serializable {
         this.content = content;
     }
 
-    public void setMood(String mood) {
+    public void setMood(Mood mood) {
         this.mood = mood;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 }

@@ -12,14 +12,26 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int FLAG_REGISTER_CONTENT_OBSERVER = 2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // create database
+        // set OnItemLongClickListener
+        ListView listViewEntry = findViewById(R.id.entryListView);
+        listViewEntry.setOnItemLongClickListener(new OnItemLongClickListener());
+
+        updateData();
+    }
+
+    // update listview
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateData();
+    }
+
+    public void updateData() {
         EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
         Cursor cursor = db.selectAll();
 
@@ -44,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
     private class OnItemLongClickListener implements AdapterView.OnItemLongClickListener {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-            // TODO implement listener
+            Cursor cursor = (Cursor) adapterView.getItemAtPosition(i);
+            long id = cursor.getLong(cursor.getColumnIndex("_id"));
+            EntryDatabase db = EntryDatabase.getInstance(getApplicationContext());
+            db.deleteEntry(id);
+            updateData();
             return true;
         }
     }

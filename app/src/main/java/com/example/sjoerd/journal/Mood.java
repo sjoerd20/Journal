@@ -20,4 +20,34 @@ public enum Mood {
                 return R.drawable.laughing;
         }
     }
+
+    public int getMoodImageView() {
+        switch (this) {
+            case HAPPY:
+                return R.id.moodHappy;
+            case SAD:
+                return R.id.moodSad;
+            case INLOVE:
+                return R.id.moodInLove;
+            case ANGRY:
+                return R.id.moodAngry;
+            default:
+                return R.id.moodHappy;
+        }
+    }
+
+    public Mood getMood() {
+        switch (this) {
+            case HAPPY:
+                return HAPPY;
+            case SAD:
+                return SAD;
+            case INLOVE:
+                return INLOVE;
+            case ANGRY:
+                return ANGRY;
+            default:
+                return HAPPY;
+        }
+    }
 }

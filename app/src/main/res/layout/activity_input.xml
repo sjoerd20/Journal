@@ -4,28 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="20"
     android:orientation="vertical"
     tools:context=".InputActivity">
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <EditText
+        android:id="@+id/editTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Title" />
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/entryTextView"
+    <EditText
+        android:id="@+id/editEntryText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="50"
-        android:text="entry body" />
+        android:layout_weight="25"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/moodHappy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="happyMood"
+            app:srcCompat="@drawable/laughing" />
+
+        <ImageView
+            android:id="@+id/moodInLove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="inLoveMood"
+            app:srcCompat="@drawable/inlove" />
+
+        <ImageView
+            android:id="@+id/moodAngry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="angryMood"
+            app:srcCompat="@drawable/angry" />
+
+        <ImageView
+            android:id="@+id/moodSad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="sadMood"
+            app:srcCompat="@drawable/sad" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:onClick="onSubmitClicked"
+        android:onClick="addEntry"
         android:text="submit" />
 </LinearLayout>
