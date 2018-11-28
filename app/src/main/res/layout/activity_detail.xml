@@ -8,28 +8,28 @@
     tools:context=".DetailActivity">
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/titleJournalTextView"
         android:layout_width="501dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:text="Title" />
 
     <TextView
-        android:id="@+id/timeStampTextView"
+        android:id="@+id/timestampJournalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Date" />
 
-    <TextView
-        android:id="@+id/moodTextView"
+    <ImageView
+        android:id="@+id/moodJournalImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Mood" />
+        app:srcCompat="@drawable/laughing" />
 
     <TextView
-        android:id="@+id/entryTextView"
+        android:id="@+id/entryJournalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="30"

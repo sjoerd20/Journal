@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.sql.Timestamp;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         // set OnItemLongClickListener
         ListView listViewEntry = findViewById(R.id.entryListView);
         listViewEntry.setOnItemLongClickListener(new OnItemLongClickListener());
+        listViewEntry.setOnItemClickListener(new OnItemClickListener());
 
         updateData();
     }
@@ -49,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            // TODO implement listener
+            JournalEntry entry = (JournalEntry) adapterView.getItemAtPosition(i);
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            intent.putExtra("entryJournal", entry);
+            startActivity(intent);
         }
     }
 
