@@ -3,6 +3,7 @@ package com.example.sjoerd.journal;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -25,12 +26,17 @@ public class DetailActivity extends AppCompatActivity {
         TextView timestamp = findViewById(R.id.timestampJournalTextView);
         TextView entryText = findViewById(R.id.entryJournalTextView);
         ImageView moodImage = findViewById(R.id.moodJournalImageView);
-//
-//        // set all views
-//        title.setText(retrievedEntry.getTitle());
-//        timestamp.setText(retrievedEntry.getTimestamp().toString());
-//        entryText.setText(retrievedEntry.getContent());
-//        Mood mood = retrievedEntry.getMood();
-//        moodImage.setImageResource(mood.getMoodImage());
+
+        // set all views
+        try {
+            title.setText(retrievedEntry.getTitle());
+            timestamp.setText(retrievedEntry.getTimestamp().toString());
+            entryText.setText(retrievedEntry.getContent());
+            Mood mood = retrievedEntry.getMood();
+            moodImage.setImageResource(mood.getMoodImage());
+        }
+        catch (Exception e) {
+            Log.e("error", "could not load content");
+        }
     }
 }

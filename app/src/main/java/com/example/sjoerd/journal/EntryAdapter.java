@@ -16,21 +16,21 @@ public class EntryAdapter extends ResourceCursorAdapter {
     }
 
     // with getItem return a JournalEntry object instead of the standard cursor
-    @Override
-    public Object getItem(int position) {
-
-        // get the cursor
-        Cursor cursor = (Cursor) super.getItem(position);
-
-        // get all details of the journal and return the result
-        int id = cursor.getInt(cursor.getColumnIndex("_id"));
-        String title = cursor.getString(cursor.getColumnIndex("title"));
-        String content = cursor.getString(cursor.getColumnIndex("content"));
-        Mood mood = Mood.valueOf(cursor.getString(cursor.getColumnIndex("mood")));
-        Timestamp timestamp = Timestamp.valueOf(cursor.getString(cursor.getColumnIndex("timestamp")));
-
-        return new JournalEntry(id,title,content,mood,timestamp);
-    }
+//    @Override
+//    public Object getItem(int position) {
+//
+//        // get the cursor
+//        Cursor cursor = (Cursor) super.getItem(position);
+//
+//        // get all details of the journal and return the result
+//        int id = cursor.getInt(cursor.getColumnIndex("_id"));
+//        String title = cursor.getString(cursor.getColumnIndex("title"));
+//        String content = cursor.getString(cursor.getColumnIndex("content"));
+//        Mood mood = Mood.valueOf(cursor.getString(cursor.getColumnIndex("mood")));
+//        Timestamp timestamp = Timestamp.valueOf(cursor.getString(cursor.getColumnIndex("timestamp")));
+//
+//        return new JournalEntry(id,title,content,mood,timestamp);
+//    }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
