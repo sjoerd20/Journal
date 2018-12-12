@@ -22,17 +22,23 @@ public class DetailActivity extends AppCompatActivity {
         JournalEntry retrievedEntry = (JournalEntry) intent.getSerializableExtra("entry");
 
         // get all views
-        TextView title = findViewById(R.id.titleJournalTextView);
-        TextView timestamp = findViewById(R.id.timestampJournalTextView);
-        TextView entryText = findViewById(R.id.entryJournalTextView);
-        ImageView moodImage = findViewById(R.id.moodJournalImageView);
+        TextView title = findViewById(R.id.titleDetail);
+        TextView timestamp = findViewById(R.id.timestampDetail);
+        TextView entryText = findViewById(R.id.entryDetail);
+        ImageView moodImage = findViewById(R.id.moodDetail);
 
         // set all views
         try {
-            title.setText(retrievedEntry.getTitle());
-            timestamp.setText(retrievedEntry.getTimestamp().toString());
-            entryText.setText(retrievedEntry.getContent());
-            Mood mood = retrievedEntry.getMood();
+//            title.setText(retrievedEntry.getTitle());
+//            timestamp.setText(retrievedEntry.getTimestamp().toString());
+//            entryText.setText(retrievedEntry.getContent());
+//            Mood mood = retrievedEntry.getMood();
+//            moodImage.setImageResource(mood.getMoodImage());
+
+            title.setText("Hello");
+            timestamp.setText("2018:12:12 12:51:03:422");
+            entryText.setText("Hello");
+            Mood mood = Mood.HAPPY;
             moodImage.setImageResource(mood.getMoodImage());
         }
         catch (Exception e) {

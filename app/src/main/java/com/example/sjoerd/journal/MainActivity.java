@@ -52,21 +52,16 @@ public class MainActivity extends AppCompatActivity {
     private class OnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            JournalEntry entry = null;
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            JournalEntry entry;
             try {
                 entry = (JournalEntry) adapterView.getItemAtPosition(i);
-            }
-            catch (Exception e) {
-                Log.e("error", "displaying details failed");
-            }
-
-            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-            try {
                 intent.putExtra("entryJournal", entry);
             }
             catch (Exception e) {
                 Log.e("error", "displaying details failed");
             }
+
             startActivity(intent);
         }
     }
